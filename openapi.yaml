@@ -1,0 +1,320 @@
+openapi: 3.0.0
+info:
+  title: ODTFD API Documentation
+  version: 1.0.0
+  
+tags:
+  - name: Pages list
+    description: All the pages list
+    
+  - name: Degree Page
+    description: Degree page
+    
+  - name: Transcript Page
+    description: Transcript page
+    
+  - name: CNIC Page
+    description: CNIC page
+    
+paths:
+  /degreePage:
+    get:
+      tags:
+        - Pages list
+        - Degree Page
+      parameters:
+        - in: query
+          name: message
+          schema: 
+            type: string
+            example: Image saved
+      responses:
+        200:
+          description: Getting the saved message
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  properties:
+                    message:
+                      type: string
+                      example: Image saved
+                      
+    post:
+      tags:
+        - Pages list
+        - Degree Page
+      summary: Sending all the data
+      parameters:
+        - $ref: '#/components/parameters/QueryParametersForPostImage'
+        - $ref: '#/components/parameters/QueryParametersForPostStaticOrDynamic'
+        - $ref: '#/components/parameters/QueryParametersForPostHeight'
+        - $ref: '#/components/parameters/QueryParametersForPostWidth'
+        - $ref: '#/components/parameters/QueryParametersForPostLeft'
+        - $ref: '#/components/parameters/QueryParametersForPostRight'
+        - $ref: '#/components/parameters/QueryParametersForPostLabel'
+        
+      requestBody:
+        description: Sending Image, label, height, width, left, right, type
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/ArrayForPostInQuery'
+          application/xml:
+            schema:
+              $ref: '#/components/schemas/ArrayForPostInQuery'
+      responses:
+        200:
+          description: Successfully send
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  BBTypes:
+                    type: object
+                    example: [
+  {
+    "img":"3444/img/31234/4551341/613413",
+    "types": "string or dynamic",
+    "height": 7,
+    "width": 6,
+    "left": 2,
+    "right": 8,
+    "label": "serial No"
+  }
+]
+            application/xml:
+                schema:
+                  type: object
+                  properties:
+                    BBTypes:
+                      type: object
+                      example: [
+  {
+    "img":"3444/img/31234/4551341/613413",
+    "types": "string or dynamic",
+    "height": 7,
+    "width": 6,
+    "left": 2,
+    "right": 8,
+    "label": "serial No"
+  }
+]
+  /transcriptPage:
+    get:
+      tags:
+        - Pages list
+        - Transcript Page
+      parameters:
+        - in: query
+          name: message
+          schema: 
+            type: string
+            example: Image saved
+      responses:
+        200:
+          description: Getting the saved message
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  properties:
+                    message:
+                      type: string
+                      example: Image saved
+                      
+    post:
+      tags:
+        - Pages list
+        - Transcript Page
+      summary: Sending all the data
+      parameters:
+        - $ref: '#/components/parameters/QueryParametersForPostImage'
+        - $ref: '#/components/parameters/QueryParametersForPostStaticOrDynamic'
+        - $ref: '#/components/parameters/QueryParametersForPostHeight'
+        - $ref: '#/components/parameters/QueryParametersForPostWidth'
+        - $ref: '#/components/parameters/QueryParametersForPostLeft'
+        - $ref: '#/components/parameters/QueryParametersForPostRight'
+        - $ref: '#/components/parameters/QueryParametersForPostLabel'
+        
+      requestBody:
+        description: Sending image, label, height, width, left, right, type
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/ArrayForPostInQuery'
+          application/xml:
+            schema:
+              $ref: '#/components/schemas/ArrayForPostInQuery'
+      responses:
+        200:
+          description: Successfully send
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  BBTypes:
+                    type: object
+                    example: [
+  {
+    "img": "3444/img/31234/4551341/613413",
+    "types": "string or dynamic",
+    "height": 7,
+    "width": 6,
+    "left": 2,
+    "right": 8,
+    "label": "serial No"
+  }
+]
+
+  /CnicPage:
+    get:
+      tags:
+        - Pages list
+        - CNIC Page
+      parameters:
+        - in: query
+          name: message
+          schema: 
+            type: string
+            example: Image saved
+      responses:
+        200:
+          description: Getting the saved message
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  properties:
+                    message:
+                      type: string
+                      example: Image saved
+                      
+    post:
+      tags:
+        - Pages list
+        - CNIC Page
+      summary: Sending all the data
+      parameters:
+        - $ref: '#/components/parameters/QueryParametersForPostImage'
+        - $ref: '#/components/parameters/QueryParametersForPostStaticOrDynamic'
+        - $ref: '#/components/parameters/QueryParametersForPostHeight'
+        - $ref: '#/components/parameters/QueryParametersForPostWidth'
+        - $ref: '#/components/parameters/QueryParametersForPostLeft'
+        - $ref: '#/components/parameters/QueryParametersForPostRight'
+        - $ref: '#/components/parameters/QueryParametersForPostLabel'
+        
+      requestBody:
+        description: Sending image, label, height, width, left, right, type
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/ArrayForPostInQuery'
+          application/xml:
+            schema:
+              $ref: '#/components/schemas/ArrayForPostInQuery'
+              
+      responses:
+        200:
+          description: Successfully send
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  BBTypes:
+                    type: object
+                    example: [
+  {
+    "img":"3444/img/31234/4551341/613413",
+    "types": "string or dynamic",
+    "height": 7,
+    "width": 6,
+    "left": 2,
+    "right": 8,
+    "label": "serial No"
+  }
+]
+
+components:
+  schemas:
+    ArrayForPostInQuery:
+      type: array
+      items:
+        properties:
+          img:
+            type: string
+            example: "3444/img/31234/4551341/613413"
+          types:
+            type: string
+            example: string or dynamic
+          height:
+            type: integer
+            example: 7
+          width:
+            type: integer
+            example: 6
+          left:
+            type: integer
+            example: 2
+          right:
+            type: integer
+            example: 8
+          label:
+            type: string
+            example: serial No        
+  parameters:
+    QueryParametersForPostImage:  
+      in: query
+      name: image
+      required: true
+      schema: 
+       type: string
+       example: 3444/img/31234/4551341/613413
+    QueryParametersForPostStaticOrDynamic:  
+      in: query
+      name: static or dynamic
+      required: true
+      schema: 
+       type: string
+       example: static
+    QueryParametersForPostHeight:   
+      in: query
+      name: height
+      required: true
+      schema: 
+        type: integer
+        example: 7
+    QueryParametersForPostWidth:      
+      in: query
+      name: width
+      required: true
+      schema: 
+        type: integer
+        example: 6
+    QueryParametersForPostLeft:      
+      in: query
+      name: left
+      required: true
+      schema: 
+        type: integer
+        example: 2
+    QueryParametersForPostRight:      
+      in: query
+      name: right
+      required: true
+      schema: 
+        type: string
+        example: 8
+    QueryParametersForPostLabel:      
+      in: query
+      name: label
+      required: true
+      schema: 
+        type: string
+        example: serial No  
